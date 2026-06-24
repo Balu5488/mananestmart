@@ -1,40 +1,187 @@
-<form id="orderForm">
-  Name: <input type="text" id="name"><br><br>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MANA NEST MART</title>
 
-  Phone: <input type="text" id="phone"><br><br>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-  Location: <input type="text" id="location"><br><br>
+body{
+background:#f5f7fa;
+}
 
-  Product:
-  <select id="product">
-    <option>Eggs</option>
-    <option>Nattu Kodi</option>
-    <option>Meat</option>
-    <option>Dry Fish</option>
-  </select><br><br>
+header{
+background:linear-gradient(135deg,#0f9b0f,#38ef7d);
+color:white;
+text-align:center;
+padding:40px 20px;
+}
 
-  <button type="button" onclick="sendWhatsApp()">
-    Order on WhatsApp
-  </button>
-</form>
+header h1{
+font-size:42px;
+}
+
+header p{
+font-size:18px;
+margin-top:10px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h3{
+color:#0f9b0f;
+margin-bottom:10px;
+}
+
+.form-section{
+background:white;
+max-width:700px;
+margin:20px auto;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-section h2{
+text-align:center;
+margin-bottom:20px;
+color:#0f9b0f;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:14px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1ebd5a;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MANA NEST MART</h1>
+<p>Fresh Eggs • Nattu Kodi • Meat • Dry Fish</p>
+</header>
+
+<section class="products">
+<div class="card">
+<h3>🥚 Eggs</h3>
+<p>Fresh Farm Eggs</p>
+</div>
+
+<div class="card">
+<h3>🐔 Nattu Kodi</h3>
+<p>Country Chicken</p>
+</div>
+
+<div class="card">
+<h3>🍖 Meat</h3>
+<p>Fresh Quality Meat</p>
+</div>
+
+<div class="card">
+<h3>🐟 Dry Fish</h3>
+<p>Premium Dry Fish</p>
+</div>
+</section>
+
+<div class="form-section">
+<h2>Place Your Order</h2>
+
+<input type="text" id="name" placeholder="Customer Name">
+
+<input type="text" id="phone" placeholder="Phone Number">
+
+<input type="text" id="location" placeholder="Location">
+
+<select id="product">
+<option>Eggs</option>
+<option>Nattu Kodi</option>
+<option>Meat</option>
+<option>Dry Fish</option>
+</select>
+
+<input type="number" id="qty" placeholder="Quantity" min="1">
+
+<button onclick="sendWhatsApp()">
+Order on WhatsApp
+</button>
+</div>
+
+<footer>
+© 2026 MANA NEST MART | Fresh & Quality Products
+</footer>
 
 <script>
-function sendWhatsApp() {
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let location = document.getElementById("location").value;
-  let product = document.getElementById("product").value;
+function sendWhatsApp(){
 
-  let message =
-    `New Order%0A` +
-    `Name: ${name}%0A` +
-    `Phone: ${phone}%0A` +
-    `Location: ${location}%0A` +
-    `Product: ${product}`;
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let location=document.getElementById("location").value;
+let product=document.getElementById("product").value;
+let qty=document.getElementById("qty").value;
 
-  window.open(
-    `https://wa.me/91YOURNUMBER?text=${message}`,
-    "_blank"
-  );
+let message=
+"New Order%0A"+
+"Name: "+name+"%0A"+
+"Phone: "+phone+"%0A"+
+"Location: "+location+"%0A"+
+"Product: "+product+"%0A"+
+"Quantity: "+qty;
+
+window.open(
+"https://wa.me/918317501369?text="+message,
+"_blank"
+);
 }
 </script>
+
+</body>
+</html>
+```
